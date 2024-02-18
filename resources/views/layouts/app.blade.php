@@ -9,18 +9,24 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
 
+    @stack('extra-css')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="antialiased font-mulish bg-primary-bg">
-    <div class="bg-primary">
-        <div class="container mx-auto h-11">
-            <div class="w-full flex items-center justify-end h-full">
-                <ul class="flex items-center justify-center gap-3">
-                    <li>
-                                <span>
+<div class="bg-primary">
+    <div class="container mx-auto h-11">
+        <div class="w-full flex items-center justify-end h-full">
+            <ul class="flex items-center justify-center gap-3">
+                <li>
+                    <span>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -28,9 +34,9 @@
                                             fill="white"/>
                                     </svg>
                                 </span>
-                    </li>
-                    <li>
-                                <span>
+                </li>
+                <li>
+                    <span>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -38,9 +44,9 @@
                                             fill="white"/>
                                     </svg>
                                 </span>
-                    </li>
-                    <li>
-                                <span class="flex items-center justify-center gap-1.5">
+                </li>
+                <li>
+                    <span class="flex items-center justify-center gap-1.5">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
             <path
@@ -49,9 +55,9 @@
             </svg>
                                     <p class="text-neutral-light text-sm">enquiries@aircat.com.bn</p>
                                 </span>
-                    </li>
-                    <li>
-                                <span class="flex items-center justify-center gap-1.5">
+                </li>
+                <li>
+                    <span class="flex items-center justify-center gap-1.5">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_220_809)">
@@ -67,160 +73,166 @@
             </svg>
                                     <p class="text-neutral-light text-sm">(+673) 2231871</p>
                                 </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<nav class="bg-white border-gray-200">
+    <div class="container mx-auto p-4">
+        <div class="flex flex-wrap items-center justify-between">
+            <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="{{ asset('assets/images/main-logo.svg') }}" alt="{{ config('app.name') }}"/>
+            </a>
+            <div class="flex md:order-2">
+                <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
+                        aria-expanded="false"
+                        class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Search</span>
+                </button>
+                <div class="relative hidden md:block">
+
+                    <div class="flex items-center justify-center h-full">
+                        <input type="text" id="search-navbar"
+                               class="block w-56 p-2 text-sm text-neutral-accent border border-neutral-border rounded-s-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 outline-none border-e-0"
+                               placeholder="Search...">
+                        <div class="flex items-center pointer-events-none bg-primary h-full py-2.5 px-4 rounded-e-lg">
+                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_220_922)">
+                                    <path
+                                        d="M12.5726 11.0779L15.4279 13.9326L14.4846 14.8759L11.6299 12.0206C10.5677 12.8721 9.24659 13.3352 7.88525 13.3333C4.57325 13.3333 1.88525 10.6453 1.88525 7.33325C1.88525 4.02125 4.57325 1.33325 7.88525 1.33325C11.1973 1.33325 13.8853 4.02125 13.8853 7.33325C13.8872 8.69459 13.4241 10.0157 12.5726 11.0779ZM11.2353 10.5833C12.0813 9.71318 12.5538 8.54687 12.5519 7.33325C12.5519 4.75459 10.4633 2.66659 7.88525 2.66659C5.30659 2.66659 3.21859 4.75459 3.21859 7.33325C3.21859 9.91125 5.30659 11.9999 7.88525 11.9999C9.09887 12.0018 10.2652 11.5293 11.1353 10.6833L11.2353 10.5833Z"
+                                        fill="white"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_220_922">
+                                        <rect width="16" height="16" fill="white" transform="translate(0.551758)"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <span class="sr-only">Search icon</span>
+                        </div>
+                    </div>
+                </div>
+                <button data-collapse-toggle="navbar-search" type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="navbar-search" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+                <div class="relative mt-3 md:hidden">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                  stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="search-navbar"
+                           class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                           placeholder="Search...">
+                </div>
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    @php
+                        $services = \App\Models\Service::get();
+                    @endphp
+                    <li>
+                        <a href="{{ route('home') }}"
+                           class="block py-2 px-3 text-secondary bg-blue-700 rounded md:bg-transparent md:text-text-secondary md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary"
+                           aria-current="page">Home</a>
                     </li>
-                    <li></li>
+                    <li
+                        x-data="{show: false}"
+                        @click.outside="show = false">
+                        <a
+                            @click="show = !show"
+                            class="flex items-center justify-between w-full py-2 px-3 text-secondary rounded cursor-pointer hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto">
+                            Services
+                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </a>
+                        <!-- Dropdown menu -->
+                        <template x-if="true">
+                        <div
+                            x-cloak
+                            x-show="show"
+                            class="z-10 absolute font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700">
+                                @foreach($services as $service)
+                                    <li>
+                                        <a href="{{ route('service-detail', $service) }}"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $service->name }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        </template>
+                    </li>
+                    <li>
+                        <a
+                            href="{{ route('company-overview') }}"
+                            class="flex items-center justify-between w-full py-2 px-3 text-secondary rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto">
+                            About Us
+                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg>
+                        </a>
+                        <!-- Dropdown menu -->
+                        <div
+                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700">
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#"
+                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                    out</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{{ route('contact') }}"
+                           class="block py-2 px-3 text-secondary bg-blue-700 rounded md:bg-transparent md:text-text-secondary md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary"
+                           aria-current="page">Contact Us</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
+</nav>
 
-    <nav class="bg-white border-gray-200">
-        <div class="container mx-auto p-4">
-            <div class="flex flex-wrap items-center justify-between">
-                <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('assets/images/main-logo.svg') }}" alt="{{ config('app.name') }}"/>
-                </a>
-                <div class="flex md:order-2">
-                    <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
-                            aria-expanded="false"
-                            class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                        </svg>
-                        <span class="sr-only">Search</span>
-                    </button>
-                    <div class="relative hidden md:block">
+@yield('content')
 
-                        <div class="flex items-center justify-center h-full">
-                            <input type="text" id="search-navbar"
-                                   class="block w-56 p-2 text-sm text-neutral-accent border border-neutral-border rounded-s-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 outline-none border-e-0"
-                                   placeholder="Search...">
-                            <div class="flex items-center pointer-events-none bg-primary h-full py-2.5 px-4 rounded-e-lg">
-                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_220_922)">
-                                        <path d="M12.5726 11.0779L15.4279 13.9326L14.4846 14.8759L11.6299 12.0206C10.5677 12.8721 9.24659 13.3352 7.88525 13.3333C4.57325 13.3333 1.88525 10.6453 1.88525 7.33325C1.88525 4.02125 4.57325 1.33325 7.88525 1.33325C11.1973 1.33325 13.8853 4.02125 13.8853 7.33325C13.8872 8.69459 13.4241 10.0157 12.5726 11.0779ZM11.2353 10.5833C12.0813 9.71318 12.5538 8.54687 12.5519 7.33325C12.5519 4.75459 10.4633 2.66659 7.88525 2.66659C5.30659 2.66659 3.21859 4.75459 3.21859 7.33325C3.21859 9.91125 5.30659 11.9999 7.88525 11.9999C9.09887 12.0018 10.2652 11.5293 11.1353 10.6833L11.2353 10.5833Z" fill="white"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_220_922">
-                                            <rect width="16" height="16" fill="white" transform="translate(0.551758)"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                <span class="sr-only">Search icon</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button data-collapse-toggle="navbar-search" type="button"
-                            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                            aria-controls="navbar-search" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M1 1h15M1 7h15M1 13h15"/>
-                        </svg>
-                    </button>
-                </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
-                    <div class="relative mt-3 md:hidden">
-                        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                      stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                            </svg>
-                        </div>
-                        <input type="text" id="search-navbar"
-                               class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                               placeholder="Search...">
-                    </div>
-                    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
-                        <li>
-                            <a href="#"
-                               class="block py-2 px-3 text-secondary bg-blue-700 rounded md:bg-transparent md:text-text-secondary md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary"
-                               aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <button class="flex items-center justify-between w-full py-2 px-3 text-secondary rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto">
-                                Services
-                                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="m1 1 4 4 4-4"/>
-                                </svg>
-                            </button>
-                            <!-- Dropdown menu -->
-                            <div
-                                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                                <ul class="py-2 text-sm text-gray-700">
-                                    <li>
-                                        <a href="#"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                    </li>
-                                </ul>
-                                <div class="py-1">
-                                    <a href="#"
-                                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                        out</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <button class="flex items-center justify-between w-full py-2 px-3 text-secondary rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto">
-                                About Us
-                                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                     fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                          stroke-width="2" d="m1 1 4 4 4-4"/>
-                                </svg>
-                            </button>
-                            <!-- Dropdown menu -->
-                            <div
-                                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                                <ul class="py-2 text-sm text-gray-700">
-                                    <li>
-                                        <a href="#"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                    </li>
-                                </ul>
-                                <div class="py-1">
-                                    <a href="#"
-                                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                        out</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#"
-                               class="block py-2 px-3 text-secondary bg-blue-700 rounded md:bg-transparent md:text-text-secondary md:p-0 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary"
-                               aria-current="page">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    @yield('content')
-
-    @include('partials.footer')
+@include('partials.footer')
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+@stack('extra-js')
 </body>
 </html>

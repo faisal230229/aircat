@@ -1,16 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <header class="w-full h-screen bg-no-repeat bg-cover" style="background-image: url('{{ asset('assets/images/slider-one.png') }}')">
-        <div class="container mx-auto h-full">
-            <div
-                class="flex items-center justify-start h-full"
-                {{--                class="w-2/5"--}}
-            >
-                <h1 class="text-5xl text-neutral-light font-bold text-left leading-[3.5rem]">Welcome to <br>AIR CAT LOGISTICS, <br>Your One-Stop Solution for
-                    <br>Worldwide Logistics.</h1>
-            </div>
-        </div>
-    </header>
+
+    <x-home-slider/>
 
     <section class="py-16 border-b-2 border-neutral-normal">
         <div class="container mx-auto">
@@ -27,51 +18,7 @@
         </div>
     </section>
 
-    <section class="py-16">
-        <div class="container mx-auto">
-            <div class="text-center space-y-5">
-                <h5 class="text-5xl font-light text-neutral-dark">What Do We Offer?</h5>
-                <p class="text-neutral-medium">In AIR CAT LOGISTICS SDN BHD we offer these logistic services</p>
-            </div>
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
-                <div class="w-full rounded-2xl overflow-hidden relative group">
-                    <div class="w-full group-hover:scale-110 transition-transform">
-                        <img src="{{ asset('assets/images/air-freight.png') }}" alt="" class="w-full bg-cover">
-                    </div>
-                    <span class="absolute bottom-8 w-full text-center group-hover:scale-110 transition-transform">
-                        <h6 class="font-semibold text-lg text-neutral-light uppercase">Air Freight</h6>
-                    </span>
-                </div>
-                <div class="w-full rounded-2xl overflow-hidden relative group">
-                    <div class="w-full group-hover:scale-110 transition-transform">
-                        <img src="{{ asset('assets/images/occean-freight.png') }}" alt="" class="w-full bg-cover">
-                    </div>
-                    <span class="absolute bottom-8 w-full text-center group-hover:scale-110 transition-transform">
-                        <h6 class="font-semibold text-lg text-neutral-light uppercase">Ocean freight</h6>
-                    </span>
-                </div>
-                <div class="w-full rounded-2xl overflow-hidden relative group">
-                    <div class="w-full group-hover:scale-110 transition-transform">
-                        <img src="{{ asset('assets/images/warehousing.png') }}" alt="" class="w-full bg-cover">
-                    </div>
-                    <span class="absolute bottom-8 w-full text-center group-hover:scale-110 transition-transform">
-                        <h6 class="font-semibold text-lg text-neutral-light uppercase">Warehousing</h6>
-                    </span>
-                </div>
-                <div class="w-full rounded-2xl overflow-hidden relative group">
-                    <div class="w-full group-hover:scale-110 transition-transform">
-                        <img src="{{ asset('assets/images/transportation.png') }}" alt="" class="w-full bg-cover">
-                    </div>
-                    <span class="absolute bottom-8 w-full text-center group-hover:scale-110 transition-transform">
-                        <h6 class="font-semibold text-lg text-neutral-light uppercase">TRANSPORTATION</h6>
-                    </span>
-                </div>
-            </div>
-            <div class="mt-8 flex items-center justify-center">
-                <a href="" class="bg-primary py-4 px-16 font-medium text-neutral-light text-lg">See More</a>
-            </div>
-        </div>
-    </section>
+    <x-home-services/>
 
     <section class="py-16 bg-secondary-bg">
         <div class="container mx-auto">
@@ -184,3 +131,27 @@
     </section>
 
 @endsection
+
+@push('extra-js')
+    <script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+        var swiper = new Swiper(".swiper", {
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    progressCircle.style.setProperty("--progress", 1 - progress);
+                    // progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                }
+            }
+        });
+    </script>
+@endpush
