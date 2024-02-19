@@ -5,7 +5,7 @@
     @include('partials.secondary-header')
 
     <section class="py-16">
-        <div class="container mx-auto flex">
+        <div class="container mx-auto flex gap-12">
             <article class="w-9/12">
                 <h2 class="text-4xl text-secondary font-extrabold uppercase mb-12">{{ $service->name }} SERVICES</h2>
                 {!! tiptap_converter()->asHTML($service->content) !!}
@@ -15,9 +15,9 @@
                     <div>
                         <img src="{{ $service->getFirstMediaUrl() }}" alt="" class="w-full object-cover">
                     </div>
-                    <div class="bg-[rgba(35,35,49,1)] py-10 px-8">
+                    <div class="bg-[rgba(35,35,49,1)] py-6 px-4">
                         <p class="font-bold text-3xl text-center text-neutral-light">Contact us now</p>
-                        <div class="py-8 space-y-6">
+                        <div class="py-4 space-y-4">
                             <div class="flex gap-2">
                                 <div class="bg-primary w-10 h-10 rounded-full flex items-center justify-center">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"

@@ -88,35 +88,29 @@
                     </li>
                 </ul>
             </div>
-            <div class="flex items-start justify-center">
+            <div class="flex items-start justify-end">
                 <ul class="space-y-6">
                     <li>
                         <p class="text-lg font-bold text-neutral-light">Services</p>
                     </li>
-                    <li>
-                        <p class="text-neutral-light">Air Freight</p>
-                    </li>
-                    <li>
-                        <p class="text-neutral-light">Ocean Freight</p>
-                    </li>
-                    <li>
-                        <p class="text-neutral-light">Warehousing</p>
-                    </li>
-                    <li>
-                        <p class="text-neutral-light">Transportation</p>
-                    </li>
+                    @foreach($services as $service)
+                        <li>
+                            <a href="{{ route('service-detail', $service) }}"
+                               class="text-neutral-light capitalize">{{ $service->name }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
-            <div class="flex items-start justify-center">
+            <div class="flex items-start justify-end">
                 <ul class="space-y-6">
                     <li>
                         <p class="text-lg font-bold text-neutral-light">About Us</p>
                     </li>
                     <li>
-                        <p class="text-neutral-light">Company Overview</p>
+                        <a href="{{ route('company-overview') }}" class="text-neutral-light">Company Overview</a>
                     </li>
                     <li>
-                        <p class="text-neutral-light">Company Milestone</p>
+                        <a href="{{ route('company-milestone') }}" class="text-neutral-light">Company Milestone</a>
                     </li>
                 </ul>
             </div>

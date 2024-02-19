@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 
-Route::get('/service-detail/{service}', [FrontendController::class, 'serviceDetail'])->name('service-detail');
+Route::get('/service-detail/{service:slug}', [FrontendController::class, 'serviceDetail'])->name('service-detail');
 
 Route::get('/company-overview', function () {
     return view('overview');
