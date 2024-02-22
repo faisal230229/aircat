@@ -26,9 +26,7 @@ Route::get('/company-overview', function () {
     return view('overview');
 })->name('company-overview');
 
-Route::get('/company-milestone', function () {
-    return view('milestone');
-})->name('company-milestone');
+Route::get('/company-milestone', [FrontendController::class, 'companyMilestone'])->name('company-milestone');
 
 Route::get('/contact', function () {
     return view('contact');

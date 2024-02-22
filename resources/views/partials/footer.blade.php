@@ -1,4 +1,4 @@
-<footer class="bg-secondary py-16">
+<footer class="bg-secondary py-16" id="footer">
     <div class="container mx-auto relative">
         <div class="grid grid-cols-3">
             <div class="flex items-start justify-start">
@@ -118,9 +118,9 @@
         <div class="text-center my-8">
             <p class="text-neutral-light">Copyright © 2024 Air Cat Logistics SDN BHD | Symbols of Reliability. All Rights Reserved</p>
         </div>
-        <div class="absolute -top-20 right-8">
+        <div id="btn" class="fixed right-14">
             <div>
-                <a href="" class="relative bg-primary rounded-full font-semibold text-neutral-light text-2xl p-4">
+                <a href="{{ route('contact') }}" class="relative bg-primary rounded-full font-semibold text-neutral-light text-2xl p-4">
                     <span class="absolute top-0 left-0 h-full w-full animate-ping rounded-full bg-primary opacity-75 "></span>
                     Get a Quote
                 </a>

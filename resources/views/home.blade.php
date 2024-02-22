@@ -97,7 +97,7 @@
                 <h6 class="text-4xl font-light text-neutral-dark">INTERNATIONAL LOGISTICS <br>Connected worldwide</h6>
             </div>
             <div class="w-full mt-8">
-                <video autoplay loop muted class="w-full">
+                <video autoplay loop muted class="w-3/5 mx-auto">
                     <source src="{{ asset('assets/images/animation.mp4') }}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <section class="py-16 border-t-2 border-neutral-normal">
+    <section class="py-16 border-t-2 border-neutral-normal" id="stats">
         <div class="container mx-auto">
             <div class="grid grid-cols-2">
                 <div class="flex items-center justify-center gap-4">

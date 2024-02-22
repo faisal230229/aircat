@@ -180,10 +180,12 @@
                         </div>
                         </template>
                     </li>
-                    <li>
+                    <li
+                        x-data="{show: false}"
+                        @click.outside="show = false">
                         <a
-                            href="{{ route('company-overview') }}"
-                            class="flex items-center justify-between w-full py-2 px-3 text-secondary rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto">
+                            @click="show = !show"
+                            class="flex items-center justify-between w-full py-2 px-3 text-secondary rounded cursor-pointer hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 md:w-auto">
                             About Us
                             <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                  fill="none" viewBox="0 0 10 6">
@@ -192,28 +194,23 @@
                             </svg>
                         </a>
                         <!-- Dropdown menu -->
-                        <div
-                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                            <ul class="py-2 text-sm text-gray-700">
-                                <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                </li>
-                            </ul>
-                            <div class="py-1">
-                                <a href="#"
-                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                    out</a>
+                        <template x-if="true">
+                            <div
+                                x-cloak
+                                x-show="show"
+                                class="z-10 absolute font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                                <ul class="py-2 text-sm text-gray-700">
+                                    <li>
+                                        <a href="{{ route('company-overview') }}"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white capitalize">Company Overview</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('company-milestone') }}"
+                                           class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white capitalize">Company Milestone</a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
+                        </template>
                     </li>
                     <li>
                         <a href="{{ route('contact') }}"
@@ -230,6 +227,31 @@
 
 @include('partials.footer')
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    let options = {
+        rootMargin: "-94px",
+    };
+
+    let observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            console.log('here')
+            const intersecting = entry.isIntersecting
+            const btn = document.querySelector('#btn');
+            if (intersecting)
+            {
+                btn.style.position = "absolute";
+                btn.style.top = "-5rem";
+                btn.style.removeProperty('bottom');
+            }
+            else{
+                btn.style.position = "fixed";
+                btn.style.bottom = "3.5rem";
+                btn.style.removeProperty('top');
+            }
+        })
+    }, options);
+    observer.observe(document.querySelector('#footer'))
+</script>
 @stack('extra-js')
 </body>
 </html>

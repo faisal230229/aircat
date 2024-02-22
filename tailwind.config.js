@@ -20,6 +20,7 @@ export default {
                 'neutral-dark-border': 'rgba(191, 191, 191, 1)',
                 'primary-bg': 'rgba(245, 245, 245, 1)',
                 'secondary-bg': 'rgba(233, 233, 233, 1)',
+                'neutral-gray': 'rgba(217, 217, 217, 1)'
             },
             fontFamily: {
                 'mulish': ['Mulish', 'sans-serif'],
