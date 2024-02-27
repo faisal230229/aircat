@@ -45,8 +45,9 @@ class ServiceResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
+                    ->autocapitalize()
                     ->maxLength(255)
-                    ->live()
+                    ->live(onBlur: true)
                     ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
                 TextInput::make('slug')
                     ->required()

@@ -1,4 +1,4 @@
-<header class="w-full h-screen">
+<header class="w-full h-[calc(100vh_-_150px)]">
     <!-- Slider main container -->
     <div class="swiper h-full w-full">
         <!-- Additional required wrapper -->
@@ -10,8 +10,8 @@
                         <div
                             class="container mx-auto h-full flex items-center justify-start"
                         >
-                            <div class="w-1/2">
-                                <h1 class="text-5xl text-neutral-light font-bold text-left leading-[3.5rem]">
+                            <div class="w-full lg:w-1/2">
+                                <h1 class="text-4xl lg:text-5xl text-neutral-light font-bold text-left leading-[3.5rem]">
                                     {{ $slider->heading }}
                                 </h1>
                             </div>

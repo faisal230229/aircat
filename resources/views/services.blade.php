@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('meta_title', $meta?->meta_title)
+@section('meta_description', $meta?->meta_description)
+@section('meta_keywords', $meta?->meta_keywords)
+@section('meta_index', $meta?->index)
+@section('meta_follow', $meta?->follow)
+
 @section('content')
     @include('partials.secondary-header')
 

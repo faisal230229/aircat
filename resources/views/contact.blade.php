@@ -1,15 +1,21 @@
 @extends('layouts.app')
 
+@section('meta_title', $meta?->meta_title)
+@section('meta_description', $meta?->meta_description)
+@section('meta_keywords', $meta?->meta_keywords)
+@section('meta_index', $meta?->index)
+@section('meta_follow', $meta?->follow)
+
 @section('content')
     @include('partials.secondary-header')
 
     <section class="py-16">
-        <div class="container mx-auto bg-white">
-            <div class="grid grid-cols-2">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 bg-white">
                 <div class="bg-primary p-8 space-y-4 rounded-lg rounded-br-[5rem]">
                     <h2 class="text-neutral-light text-5xl font-extrabold">Contact Us Now</h2>
                     <p class="text-neutral-light">With over three decades of experience and a global network, AIR CAT LOGISTICS excels in international trade services, providing entrepreneurs with unmatched accessibility and efficiency in the logistics industry.</p>
-                    <div class="w-3/5 pt-8 space-y-4">
+                    <div class="w-full lg:w-3/5 pt-8 space-y-4">
                         <div class="flex items-start justify-start gap-4">
                             <span>
                                 <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +31,7 @@
                             </span>
                             <div>
                                 <p class="text-lg font-semibold text-neutral-light">Phone number</p>
-                                <p class="text-neutral-light">(673) 2231871, 2231872, 2231873</p>
+                                <a href="tel:{{ $settings['app_phone'] }}" class="text-neutral-light">{{ $settings['app_phone'] }}</a>
                             </div>
                         </div>
                         <div class="flex items-start justify-start gap-4">
@@ -43,7 +49,7 @@
                             </span>
                             <div>
                                 <p class="text-lg font-semibold text-neutral-light">Email</p>
-                                <p class="text-neutral-light">enquiries@aircat.com.bn</p>
+                                <a href="tel:{{ $settings['app_email'] }}" class="text-neutral-light">{{ $settings['app_email'] }}</a>
                             </div>
                         </div>
                         <div class="flex items-start justify-start gap-4">
@@ -54,7 +60,7 @@
                             </span>
                             <div>
                                 <p class="text-lg font-semibold text-neutral-light">Address</p>
-                                <p class="text-neutral-light">Unit A1 & A2, 1st Floor, Jaya Setia Square, Berakas BB2713, Airport Road, Negara Brunei Darussalam</p>
+                                <p class="text-neutral-light">{{ $settings['app_address'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -62,28 +68,40 @@
                 <div class="p-8 space-y-4">
                     <h3 class="text-4xl font-semibold text-secondary">Leave a message</h3>
                     <p class="text-[rgba(74,74,74,1)]">Whatever question you have, please feel free to ask.</p>
-                    <form action="" class="space-y-4">
-                        <div class="flex gap-4">
+                    <form action="{{ route('save-contact') }}" method="POST" class="space-y-4">
+                        @csrf
+                        @if(Session::has('success'))
+                            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
+
+                        @if(Session::has('error'))
+                            <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                                {{ Session::get('error') }}
+                            </div>
+                        @endif
+                        <div class="flex flex-col lg:flex-row gap-4">
                             <div class="flex flex-col flex-1">
                                 <label class="text-secondary font-medium text-base" for="name">Name</label>
-                                <input type="text" id="name" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your name">
+                                <input type="text" id="name" name="name" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your name">
                             </div>
                             <div class="flex flex-col flex-1">
                                 <label class="text-secondary font-medium text-base" for="email">Email</label>
-                                <input type="text" id="email" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your email">
+                                <input type="text" id="email" name="email" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your email">
                             </div>
                         </div>
                         <div class="flex flex-col ">
                             <label class="text-secondary font-medium text-base" for="phone">Phone Number</label>
-                            <input type="text" id="phone" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your phone number">
+                            <input type="text" id="phone" name="phone" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your phone number">
                         </div>
                         <div class="flex flex-col ">
                             <label class="text-secondary font-medium text-base" for="subject">Your Subject</label>
-                            <input type="text" id="subject" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your subject">
+                            <input type="text" id="subject" name="subject" class="border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your subject">
                         </div>
                         <div class="flex flex-col ">
                             <label class="text-secondary font-medium text-base" for="message">Message</label>
-                            <textarea rows="5" id="message" class="w-full border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your subject"></textarea>
+                            <textarea rows="5" id="message" name="message" class="w-full border border-neutral-dark-border rounded-lg p-2 text-md outline-none" placeholder="Enter your subject"></textarea>
                         </div>
                         <div class="w-full">
                             <button type="submit" class="w-full text-md py-2 bg-primary rounded-md text-neutral-light mt-8">Send</button>

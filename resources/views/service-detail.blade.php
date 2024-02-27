@@ -1,16 +1,21 @@
 @extends('layouts.app')
 
+@section('meta_title', $service->meta_title)
+@section('meta_description', $service->meta_description)
+@section('meta_keywords', $service->meta_keywords)
+@section('meta_index', 'index')
+@section('meta_follow', 'follow')
 
 @section('content')
     @include('partials.secondary-header')
 
     <section class="py-16">
-        <div class="container mx-auto flex gap-12">
-            <article class="w-9/12">
+        <div class="container mx-auto flex flex-col lg:flex-row gap-12">
+            <article class="w-full lg:w-9/12">
                 <h2 class="text-4xl text-secondary font-extrabold uppercase mb-12">{{ $service->name }} SERVICES</h2>
                 {!! tiptap_converter()->asHTML($service->content) !!}
             </article>
-            <aside class="w-3/12">
+            <aside class="w-full lg:w-3/12">
                 <div>
                     <div>
                         <img src="{{ $service->getFirstMediaUrl() }}" alt="" class="w-full object-cover">

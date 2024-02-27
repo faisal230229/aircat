@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('meta_title', $meta?->meta_title)
+@section('meta_description', $meta?->meta_description)
+@section('meta_keywords', $meta?->meta_keywords)
+@section('meta_index', $meta?->index)
+@section('meta_follow', $meta?->follow)
+
 @section('content')
     @include('partials.secondary-header')
 
@@ -8,12 +14,12 @@
             <div class="space-y-6">
                 <h2 class="font-extrabold text-4xl text-secondary">COMPANY OVERVIEW</h2>
             </div>
-            <div class="grid grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="relative">
-                    <span class="absolute left-4 top-4">
+                    <span class="lg:absolute left-4 top-4">
                         <img src="{{ asset('assets/images/overview-1.png') }}" alt="">
                     </span>
-                    <span class="absolute bottom-4 right-4">
+                    <span class="lg:absolute bottom-4 right-4">
                         <img src="{{ asset('assets/images/overview-2.png') }}" alt="">
                     </span>
                 </div>
@@ -27,7 +33,7 @@
                             relations, and are capable of providing the advantage of efficiency to all our partners and
                             customers. We are also one of the recognized and appointed representatives for:
                         </p>
-                        <ul class="list-disc">
+                        <ul class="list-disc ms-8">
                             <li>
                                 Royal Brunei Airline (RBA)
                             </li>
@@ -56,7 +62,7 @@
                 </div>
             </div>
             <div class="flex items-center justify-center flex-col gap-16">
-                <div class="bg-white p-8 pt-16 relative w-1/2 text-center rounded-2xl shadow-lg">
+                <div class="bg-white p-8 pt-16 relative w-full lg:w-1/2 text-center rounded-2xl shadow-lg">
                     <div class="bg-primary rounded-full p-2 absolute -top-8 left-1/2 -translate-x-1/2">
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_166_3744)">
@@ -73,7 +79,7 @@
                     <p class="font-bold text-3xl text-neutral-dark">Vision</p>
                     <p class="text-secondary">Worldwide logistic solution that encompasses a commitment to innovation, seeking new ways to enhance processes and customer experience.</p>
                 </div>
-                <div class="bg-white p-8 pt-16 relative w-1/2 text-center rounded-2xl shadow-lg">
+                <div class="bg-white p-8 pt-16 relative w-full lg:w-1/2 text-center rounded-2xl shadow-lg">
                     <div class="bg-primary rounded-full p-2 absolute -top-8 left-1/2 -translate-x-1/2">
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_202_5919)">
@@ -89,7 +95,7 @@
                     <p class="font-bold text-3xl text-neutral-dark">Mission</p>
                     <p class="text-secondary">To provide superior and reliable logistics solutions to our clients, ensuring the smooth and timely transportation of goods while creating value for all stakeholders.</p>
                 </div>
-                <div class="bg-white p-8 pt-16 relative w-1/2 text-center rounded-2xl shadow-lg">
+                <div class="bg-white p-8 pt-16 relative w-full lg:w-1/2 text-center rounded-2xl shadow-lg">
                     <div class="bg-primary rounded-full p-2 absolute -top-8 left-1/2 -translate-x-1/2">
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_202_5928)">

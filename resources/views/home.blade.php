@@ -1,13 +1,20 @@
 @extends('layouts.app')
+
+@section('meta_title', $meta?->meta_title)
+@section('meta_description', $meta?->meta_description)
+@section('meta_keywords', $meta?->meta_keywords)
+@section('meta_index', $meta?->index)
+@section('meta_follow', $meta?->follow)
+
 @section('content')
 
     <x-home-slider/>
 
     <section class="py-16 border-b-2 border-neutral-normal">
         <div class="container mx-auto">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between flex-col md:flex-row gap-4">
                 <div>
-                    <h2 class="text-secondary font-medium text-5xl leading-[3.5rem]">Your One-Stop Logistics Solution, <br>The Symbol of Reliability.</h2>
+                    <h2 class="text-secondary font-medium text-4xl md:text-5xl leading-[3.5rem]">Your One-Stop Logistics Solution, <br>The Symbol of Reliability.</h2>
                 </div>
                 <div>
                     <span>
@@ -22,7 +29,7 @@
 
     <section class="py-16 bg-secondary-bg">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="w-full">
                     <img src="{{ asset('assets/images/why-choose-us.png') }}" alt="">
                 </div>
@@ -30,7 +37,7 @@
                     <p class="text-primary text-lg">Why you choose us</p>
                     <h6 class="text-secondary text-4xl font-bold">We create an opportunity reach our potential</h6>
                     <p class="text-neutral-dark text-base font-normal">Logistics is a distinguished supply chain management firm which provides comprehensive solutions for warehousing, transportation and a host of logistics services</p>
-                    <div class="w-full grid grid-cols-2 gap-y-6">
+                    <div class="w-full grid grid-cols-2 gap-2 gap-y-6">
                         <div class="w-full flex items-center justify-start gap-4">
                             <div class="w-10 h-10 flex items-center justify-center rounded-full bg-[rgba(0,112,192,0.1)]">
                                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,17 +104,14 @@
                 <h6 class="text-4xl font-light text-neutral-dark">INTERNATIONAL LOGISTICS <br>Connected worldwide</h6>
             </div>
             <div class="w-full mt-8">
-                <video autoplay loop muted class="w-3/5 mx-auto">
-                    <source src="{{ asset('assets/images/animation.mp4') }}" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <img src="{{ asset('assets/images/animation.gif') }}" alt="" class="w-full md:w-4/5 mx-auto">
             </div>
         </div>
     </section>
 
     <section class="py-16 border-t-2 border-neutral-normal" id="stats">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="flex items-center justify-center gap-4">
                     <p class="text-secondary text-4xl font-extrabold">
                         81294
